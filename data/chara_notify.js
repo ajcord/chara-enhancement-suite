@@ -6,8 +6,11 @@ $("#sidebar").append('<audio id="sound_notification"> <source src="https://dl.dr
 
 console.log("Inserted audio.");
 
-var questions = document.getElementById("questions").childNodes;
-var lastLength = questions.length;
+function getCharaQueueLength() {
+    return document.getElementsByTagName("tr").length;
+}
+
+var lastLength = getCharaQueueLength();
 
 var observer = new MutationObserver(function(mutations, observer) {
     // fired when a mutation occurs
@@ -23,15 +26,15 @@ var observer = new MutationObserver(function(mutations, observer) {
     // console.log(lastStudentId);
     // console.log(newStudentId);
     
-    if (lastLength < questions.length) {
+    if (lastLength < getCharaQueueLength()) {
 	console.log("Previous length: " + lastLength);
-	console.log("Current length: " + questions.length);
+	console.log("Current length: " + getCharaQueueLength());
 	console.log("New question added.");
-	lastLength = questions.length;
+	lastLength = getCharaQueueLength();
 	document.getElementById("sound_notification").play();
     }
     
-    lastLength = questions.length;
+    lastLength = getCharaQueueLength();
     console.log("Previous length: " + lastLength);
 });
 
