@@ -42,7 +42,6 @@ function refresh() {
 	lastLength = getCharaQueueLength();
 	
 	if (self.options.soundEnabled) {
-	    console.log(prefs);
 	    document.getElementById("sound_notification").play();
 	}
 	if (self.options.catsEnabled) {
