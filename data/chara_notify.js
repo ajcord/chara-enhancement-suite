@@ -6,18 +6,15 @@ $("#sidebar").append('<audio id="sound_notification"> <source src="https://dl.dr
 
 console.log("Inserted audio.");
 
-var lastStudentId = ""
+var questions = $("#questions");
+var lastStudentId = questions.children()[questions.length - 1].id || "";
 
 var observer = new MutationObserver(function(mutations, observer) {
-    if (lastStudentId == "") {
-	lastStudentId = $("#questions").children()[$("#questions").length].id || "";
-    }
     // fired when a mutation occurs
     console.log("Mutation detected.");
     console.log(mutations, observer);
     
-    var questions = $("#questions");
-    var newStudentId = questions.children()[$("#questions").length].id || $("#questions").children()[$("#questions").length].id;
+    var newStudentId = questions.children()[$("#questions").length - 1].id;
 
     console.log(lastStudentId);
     console.log(newStudentId);
