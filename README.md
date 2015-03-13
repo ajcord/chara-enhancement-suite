@@ -3,7 +3,7 @@ Chara Enhancement Suite
 
 Install
 -------
-- Drag and drop xpi onto firefox.
+- Drag and drop xpi onto firefox, or use the [official addon page](https://addons.mozilla.org/en-us/firefox/addon/chara-enhancement-suite/).
 - Restart for settings changes to take effect.
 
 Features
