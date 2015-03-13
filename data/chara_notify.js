@@ -16,7 +16,7 @@ function refresh() {
     }
     
     lastLength = getCharaQueueLength();
-    document.title = "".concat("(", (lastLength - 1).toString(), ") ", baseTitle);
+    document.title = lastLength > 1 ? "".concat("(", (lastLength - 1).toString(), ") ", baseTitle) : baseTitle;
 
     setTimeout(refresh, 1000);
 }
