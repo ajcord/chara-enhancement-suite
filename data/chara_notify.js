@@ -16,9 +16,23 @@ var lastLength = getCharaQueueLength();
 
 var baseTitle = document.title;
 
-function refresh() {
+function replaceGravatars() {
+    var gravatars = document.getElementsByTagName("img");
 
-    console.log("Mutation detected.");
+    for (ii = 0; ii < gravatars.length; ii++) {
+	var gravatar = $(gravatars[ii]);
+	
+	if (gravatar.attr("alt") == "gravatar") {
+	    gravatar.attr({
+		alt: "not gravatar",
+		src: "https://thecatapi.com/api/images/get?format=src",
+		width: "30"
+	    });
+	}
+    }
+}
+
+function refresh() {
     
     if (lastLength < getCharaQueueLength()) {
 	console.log("Previous length: " + lastLength);
@@ -26,11 +40,11 @@ function refresh() {
 	console.log("New question added.");
 	lastLength = getCharaQueueLength();
 	document.getElementById("sound_notification").play();
+	replaceGravatars();
     }
     
     lastLength = getCharaQueueLength();
     document.title = "".concat("(", (lastLength - 1).toString(), ") ", baseTitle);
-    console.log("Previous length: " + lastLength);
 
     setTimeout(refresh, 1000);
 }
