@@ -1,9 +1,9 @@
 {
-  "name": "chara_addon",
-  "title": "chara_addon",
+  "name": "chara_enhancement_suite",
+  "title": "Chara Enhancement Suite",
   "id": "jid1-zB4VSzFqGgQ2BQ",
-  "description": "a basic add-on",
-  "author": "",
+  "description": "A suite for enhancing Chara.",
+  "author": "Thomas Liu",
   "license": "MPL 2.0",
-  "version": "0.1"
+  "version": "1.0.0"
 }
