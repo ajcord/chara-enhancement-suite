@@ -10,19 +10,11 @@ function getCharaQueueLength() {
 
 var lastLength = getCharaQueueLength();
 
+var baseTitle = document.title;
+
 function refresh() {
 
-    // fired when a mutation occurs
-    // if (lastStudentId == null) {
-    // 	lastStudentId = questions.item(questions.length - 1).id;
-    // }
-    
     console.log("Mutation detected.");
-
-    // var newStudentId = questions.item(questions.length - 1).id;
-
-    // console.log(lastStudentId);
-    // console.log(newStudentId);
     
     if (lastLength < getCharaQueueLength()) {
 	console.log("Previous length: " + lastLength);
@@ -33,11 +25,10 @@ function refresh() {
     }
     
     lastLength = getCharaQueueLength();
+    document.title = "".concat("(", (lastLength - 1).toString(), ") ", baseTitle);
     console.log("Previous length: " + lastLength);
 
-    // make Ajax call here, inside the callback call:
     setTimeout(refresh, 1000);
-    // ...
 }
 
 setTimeout(refresh, 1000);
