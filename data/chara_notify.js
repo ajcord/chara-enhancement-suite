@@ -6,28 +6,34 @@ $("#sidebar").append('<audio id="sound_notification"> <source src="https://dl.dr
 
 console.log("Inserted audio.");
 
-var questions = $("#questions");
-var lastStudentId = questions.children()[questions.length - 1].id || "";
+var questions = document.getElementById("questions").rows;
+var lastStudentId = "";
 
 var observer = new MutationObserver(function(mutations, observer) {
     // fired when a mutation occurs
+    // if (lastStudentId == null) {
+    // 	lastStudentId = questions.item(questions.length - 1).id;
+    // }
+    
     console.log("Mutation detected.");
     console.log(mutations, observer);
     
-    var newStudentId = questions.children()[$("#questions").length - 1].id;
+    // var newStudentId = questions.item(questions.length - 1).id;
 
-    console.log(lastStudentId);
-    console.log(newStudentId);
+    // console.log(lastStudentId);
+    // console.log(newStudentId);
     
-    if (lastStudentId != newStudentId) {
+    if (lastStudentId != questions.item(questions.length - 1).id) {
+	console.log(lastStudentId);
+	console.log(questions.item(questions.length - 1).id);
 	console.log("New question added.");
-	lastStudentId = newStudentId;
+	lastStudentId = questions.item(questions.length - 1).id;
 	$("#sound_notification")[0].play();
     }
     
 });
 
-observer.observe(document, {
+observer.observe(document.getElementById("questions"), {
   subtree: true,
   attributes: true
   //...
