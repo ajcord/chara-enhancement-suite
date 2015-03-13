@@ -1,9 +1,25 @@
 {
-  "name": "chara_enhancement_suite",
-  "title": "Chara Enhancement Suite",
-  "id": "jid1-zB4VSzFqGgQ2BQ",
-  "description": "A suite for enhancing Chara.",
-  "author": "Thomas Liu",
-  "license": "MPL 2.0",
-  "version": "1.0.1"
+    "name": "chara_enhancement_suite",
+    "title": "Chara Enhancement Suite",
+    "id": "jid1-zB4VSzFqGgQ2BQ",
+    "description": "A suite for enhancing Chara.",
+    "author": "Thomas Liu",
+    "license": "MPL 2.0",
+    "version": "1.0.1",
+    "preferences": [
+	{
+	    "description": "Enable audio notifications?",
+	    "type": "bool",
+	    "name": "soundEnabled",
+	    "value": true,
+	    "title": "Sound"
+	},
+	{
+	    "description": "Replace generic gravatars with cats?",
+	    "type": "bool",
+	    "name": "catsEnabled",
+	    "value": true,
+	    "title": "Cats"
+	}
+    ]
 }

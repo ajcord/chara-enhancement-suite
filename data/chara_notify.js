@@ -38,9 +38,16 @@ function refresh() {
 	console.log("Previous length: " + lastLength);
 	console.log("Current length: " + getCharaQueueLength());
 	console.log("New question added.");
+	
 	lastLength = getCharaQueueLength();
-	document.getElementById("sound_notification").play();
-	replaceGravatars();
+	
+	if (self.options.soundEnabled) {
+	    console.log(prefs);
+	    document.getElementById("sound_notification").play();
+	}
+	if (self.options.catsEnabled) {
+	    replaceGravatars();
+	}
     }
     
     lastLength = getCharaQueueLength();
