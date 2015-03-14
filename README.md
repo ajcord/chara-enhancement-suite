@@ -12,5 +12,6 @@ Features
 - Focus netid field automatically on login screen.
 - Delete queue button on queue page.
 - Replace generic gravatars with cats.
+- Replaces overly large new question form with a modal.
 
 
