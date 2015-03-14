@@ -44,7 +44,7 @@ function replaceGravatars() {
 	if (gravatar.attr("alt") == "gravatar") {
 	    gravatar.attr({
 		alt: "not gravatar",
-		src: "https://thecatapi.com/api/images/get?format=src",
+		src: "https://thecatapi.com/api/images/get?format=src&size=small&" + new Date().getTime(),
 		width: "30"
 	    });
 	}
