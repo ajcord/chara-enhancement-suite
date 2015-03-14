@@ -19,6 +19,14 @@ $("#new_lab_queue_staff")[0].appendChild(createDeleteButton());
 
 $("#sidebar").append('<audio id="sound_notification"> <source src="https://dl.dropboxusercontent.com/u/2758934/wilhelm.ogg" type="audio/ogg"> </audio>');
 
+$("#sidebar h3").prepend("<h1 id=course_title></h1>");
+
+$("#course_title").load("".concat(document.referrer, " .span12 h1"));
+
+function getCourseName() {
+    return $("#course_title").text().split(" ").slice(0, 2).join(" ");
+}
+
 function getCharaQueueLength() {
     return document.getElementsByTagName("tr").length;
 }
@@ -44,6 +52,11 @@ function replaceGravatars() {
 }
 
 function refresh() {
+    
+    if ($("#course_title").text()) {
+	baseTitle = "".concat(getCourseName(), " Queue");
+    }
+
     if (lastLength < getCharaQueueLength()) {
 	
 	lastLength = getCharaQueueLength();
