@@ -23,9 +23,25 @@ $("#sidebar h3").prepend("<h1 id=course_title></h1>");
 
 $("#course_title").load("".concat(document.referrer, " .span12 h1"));
 
+$("#Queue_NewQuestionForm").replaceWith('<form id="Queue_NewQuestionForm" class="modal hide in" style="display: none;" aria-hidden="false">   <fieldset>     <div class="modal-header">       <a class="close" id="new_question_close">x</a>       <h3>New Question</h3>     </div>     <div class="modal-body">       <div class="control-group hide-inline"> 	<h4 for="Queue_Pseudonym" class="control-label">Name</h4> 	<div class="controls">           <input class="input-medium" id="Queue_Pseudonym" maxlength="50" name="pseudonym" placeholder="Enter a name or nickname..." type="text">           <span class="help-inline">Please specify a name</span> 	</div>       </div>       <div class="control-group hide-inline"> 	<h4 for="Queue_Topic" class="control-label">Topic</h4> 	<div class="controls"> 	  <input id="Queue_Topic" class="input-large" name="topic_text" placeholder="Enter a brief topic for your question..." maxlength="140" type="text"> 	  <span class="help-inline">Please specify a topic</span> 	</div>       </div>       <div class="control-group hide-inline"> 	<h4 for="Queue_Location" class="control-label">Location</h4> 	<div class="controls"> 	  <input id="Queue_Location" class="input-large" name="location_text" placeholder="Enter the room number you are located in..." maxlength="140" type="text"> 	  <span class="help-inline">Please specify your location</span> 	</div>       </div>     </div>     <div class="modal-footer">       <a id="new_question_close_button" class="btn">Cancel</a>       <button type="submit" class="btn btn-primary">Add to queue</button>     </div>   </fieldset> </form>');
+
+$("#questionList").after('<div align="center"><button id="open_new_question" class="btn btn-primary">Add to queue</button></div>');
+
 function getCourseName() {
     return $("#course_title").text().split(" ").slice(0, 2).join(" ");
 }
+
+function hideQuestionModal(e) {
+    $("#Queue_NewQuestionForm").attr("style", "display: none;");
+}
+
+function showQuestionModal(e) {
+    $("#Queue_NewQuestionForm").attr("style", "display: block;");
+}
+
+$("#new_question_close").click(hideQuestionModal);
+$("#new_question_close_button").click(hideQuestionModal);
+$("#open_new_question").click(showQuestionModal);
 
 function getCharaQueueLength() {
     return document.getElementsByTagName("tr").length;
@@ -76,3 +92,4 @@ function refresh() {
 }
 
 setTimeout(refresh, 1000);
+
