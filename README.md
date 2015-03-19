@@ -5,8 +5,8 @@ This is a port of [the original Firefox extension](https://github.com/FenixFeath
 
 Install
 -------
-- Clone the repository locally
-- Drag the repository's root folder on `chrome://extensions`
+- Either install from the [Chrome Web Store](https://chrome.google.com/webstore/detail/chara-enhancement-suite/kmggpilbeonajbcfaicmfncbelighkda)
+- Or drag the repository's root folder onto `chrome://extensions`
 
 Features
 --------
