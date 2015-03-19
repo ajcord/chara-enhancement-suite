@@ -12,7 +12,6 @@ function createDeleteButton() {
     delete_button.setAttribute("data-type", "json");
     delete_button.rel="nofollow";
     delete_button.textContent = "Delete Queue";
-    delete_button.id = "delete_queue_button";
     return delete_button;
 }
 
@@ -75,24 +74,9 @@ function replaceGravatars() {
     }
 }
 
-function returnToQueueList() {
-    if (document.referrer.indexOf("chara") != -1) {
-	setTimeout(function () {window.location.href = document.referrer}, 1000);
-	return;
-    }
-    window.location.href = "/courses";
-}
-
-function unlinkConfirmationDialog() {
-    $($("#confirmationDialog .btn")[0]).off("click", returnToQueueList);
-    $($("#confirmationDialog .btn")[1]).off("click", unlinkConfirmationDialog);
-}
-
-function linkConfirmationDialog {
-    var confirmationButtons = $("#confirmationDialog .btn");
-
-    $(confirmationButtons[0]).on("click", returnToQueueList);
-    $(confirmationButtons[1]).on("click", unlinkConfirmationDialog);
+var options = {
+    soundEnabled: false,
+    catsEnabled: false
 }
 
 function refresh() {
@@ -105,10 +89,10 @@ function refresh() {
 	
 	lastLength = getCharaQueueLength();
 	
-	if (self.options.soundEnabled) {
+	if (options.soundEnabled) {
 	    document.getElementById("sound_notification").play();
 	}
-	if (self.options.catsEnabled) {
+	if (options.catsEnabled) {
 	    replaceGravatars();
 	}
     }
@@ -118,6 +102,14 @@ function refresh() {
 
     setTimeout(refresh, 1000);
 }
+
+chrome.storage.sync.get({
+    soundEnabled: true,
+    catsEnabled: true
+}, function(items) {
+    options.soundEnabled = items.soundEnabled;
+    options.catsEnabled = items.catsEnabled;
+});
 
 setTimeout(refresh, 1000);
 

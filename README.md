@@ -1,10 +1,12 @@
 Chara Enhancement Suite
 =======================
 
+This is a port of [the original Firefox extension](https://github.com/FenixFeather/chara-enhancement-suite/) to Chrome.
+
 Install
 -------
-- Drag and drop xpi onto firefox, or use the [official addon page](https://addons.mozilla.org/en-us/firefox/addon/chara-enhancement-suite/).
-- Restart for settings changes to take effect.
+- Clone the repository locally
+- Drag the repository's root folder on `chrome://extensions`
 
 Features
 --------
