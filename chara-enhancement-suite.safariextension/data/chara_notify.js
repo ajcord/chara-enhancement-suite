@@ -17,7 +17,7 @@ function createDeleteButton() {
 
 $("#new_lab_queue_staff")[0].appendChild(createDeleteButton());
 
-$("#sidebar").append('<audio id="sound_notification"> <source src="https://dl.dropboxusercontent.com/u/2758934/wilhelm.ogg" type="audio/ogg"> </audio>');
+$("#sidebar").append('<audio id="sound_notification"> <source src="' + safari.extension.baseURI + 'wilhelm.ogg" type="audio/ogg"> <source src="' + safari.extension.baseURI + 'wilhelm.mp3" type="audio/mp3"> </audio>');
 
 $("#sidebar h3").prepend("<h1 id=course_title></h1>");
 
@@ -75,8 +75,8 @@ function replaceGravatars() {
 }
 
 var options = {
-    soundEnabled: false,
-    catsEnabled: false
+    soundEnabled: true,
+    catsEnabled: true
 }
 
 function refresh() {
@@ -103,13 +103,21 @@ function refresh() {
     setTimeout(refresh, 1000);
 }
 
-chrome.storage.sync.get({
-    soundEnabled: true,
-    catsEnabled: true
-}, function(items) {
-    options.soundEnabled = items.soundEnabled;
-    options.catsEnabled = items.catsEnabled;
-});
+function handleResponse(messageEvent) {
+    if (messageEvent.name == "settings_response") {
+        if (typeof messageEvent.message["soundEnabled"] != "undefined") {
+            options.soundEnabled = messageEvent.message["soundEnabled"];
+        }
+        if (typeof messageEvent.message["catsEnabled"] != "undefined") {
+            options.catsEnabled = messageEvent.message["catsEnabled"];
+        }
+    }
+}
+
+safari.self.addEventListener("message", handleResponse, false);
+safari.self.tab.dispatchMessage("settings_query", ["soundEnabled", "catsEnabled"]);
+
+
 
 setTimeout(refresh, 1000);
 
