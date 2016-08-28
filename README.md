@@ -1,12 +1,10 @@
 Chara Enhancement Suite
 =======================
 
-This is a port of [the original Firefox extension](https://github.com/FenixFeather/chara-enhancement-suite/) to Chrome.
-
-Install
--------
-- Either install from the [Chrome Web Store](https://chrome.google.com/webstore/detail/chara-enhancement-suite/kmggpilbeonajbcfaicmfncbelighkda)
-- Or drag the repository's root folder onto `chrome://extensions`
+This is a port of
+[the original Firefox extension](https://github.com/FenixFeather/chara-enhancement-suite/)
+to Chrome and Safari. Please see the `chrome` and `safari` branches for the
+two versions.
 
 Features
 --------
