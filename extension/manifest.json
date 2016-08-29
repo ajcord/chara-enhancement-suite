@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Chara Enhancement Suite",
-  "version": "1.4.0.1",
+  "version": "1.4.1",
   "description": "A suite for enhancing Chara.",
   "author": "Ported by Alex Cordonnier, originally by Thomas Liu",
   "icons": {
@@ -26,6 +26,7 @@
     {
       "matches": ["https://chara.cs.illinois.edu/lab_queue/*"],
       "js": ["data/jquery-1.11.2.min.js",
+             "data/bootstrap.modal.min.js",
              "data/chara_notify.js"]
     },
     {
