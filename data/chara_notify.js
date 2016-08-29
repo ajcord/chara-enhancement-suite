@@ -116,7 +116,7 @@ function unlinkConfirmationDialog() {
     $($("#confirmationDialog .btn")[1]).off("click", unlinkConfirmationDialog);
 }
 
-function linkConfirmationDialog {
+function linkConfirmationDialog() {
     var confirmationButtons = $("#confirmationDialog .btn");
 
     $(confirmationButtons[0]).on("click", returnToQueueList);
