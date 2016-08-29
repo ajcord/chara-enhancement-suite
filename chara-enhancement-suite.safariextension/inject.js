@@ -10,6 +10,7 @@ var content_scripts = [
     {
       "matches": ["https://chara.cs.illinois.edu/lab_queue/*"],
       "js": ["data/jquery-1.11.2.min.js",
+             "data/bootstrap.modal.min.js",
              "data/chara_notify.js"]
     },
     {
