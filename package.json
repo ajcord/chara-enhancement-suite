@@ -1,11 +1,12 @@
 {
     "name": "chara_enhancement_suite",
     "title": "Chara Enhancement Suite",
-    "id": "jid1-zB4VSzFqGgQ2BQ",
+    "id": "jid1-zB4VSzFqGgQ2BQ@jetpack",
     "description": "A suite for enhancing Chara.",
     "author": "Thomas Liu",
     "license": "MPL 2.0",
     "version": "1.4.1",
+    "main": "lib/main.js",
     "preferences": [
 	{
 	    "description": "Enable audio notifications?",
