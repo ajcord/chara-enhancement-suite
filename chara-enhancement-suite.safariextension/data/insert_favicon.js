@@ -1,6 +1,6 @@
 function handleResponse(messageEvent) {
     if (messageEvent.name == "settings_response") {
-        if (messageEvent.message["faviconEnabled"] == "true") {
+        if (messageEvent.message["faviconEnabled"] == true) {
             var favicon = document.createElement("link");
             favicon.rel = "icon";
             favicon.type = "image/png";

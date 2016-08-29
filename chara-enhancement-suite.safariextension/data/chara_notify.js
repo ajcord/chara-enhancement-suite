@@ -134,10 +134,10 @@ function refresh() {
 function handleResponse(messageEvent) {
     if (messageEvent.name == "settings_response") {
         if (typeof messageEvent.message["soundEnabled"] != "undefined") {
-            options.soundEnabled = messageEvent.message["soundEnabled"];
+            options.soundEnabled = messageEvent.message["soundEnabled"] == true;
         }
         if (typeof messageEvent.message["catsEnabled"] != "undefined") {
-            options.catsEnabled = messageEvent.message["catsEnabled"];
+            options.catsEnabled = messageEvent.message["catsEnabled"] == true;
         }
     }
 }
