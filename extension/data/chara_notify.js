@@ -18,7 +18,7 @@ function createDeleteButton() {
 
 $("#new_lab_queue_staff")[0].appendChild(createDeleteButton());
 
-$("#sidebar").append('<audio id="sound_notification"> <source src="https://dl.dropboxusercontent.com/u/2758934/wilhelm.ogg" type="audio/ogg"> </audio>');
+$("#sidebar").append('<audio id="sound_notification"> <source src="https://cs233-queue.studentspace.cs.illinois.edu/wilhelm.ogg" type="audio/ogg"> </audio>');
 
 $("#sidebar h3").prepend("<h1 id=course_title></h1>");
 
